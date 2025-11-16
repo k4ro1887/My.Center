@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="ckb">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Center — Mobile Shop</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <style>
+    :root {
+      --bg: #000000;
+      --card: rgba(255, 255, 255, 0.06);
+      --muted: #aeb7c4;
+      --accent: #007bff;
+      --light: #ffffff;
+      font-family: 'Noto Sans Arabic', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      direction: rtl;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--light);
+      min-height: 100vh;
+    }
+
+    .wrap {
+      max-width: 900px;
+      margin: 28px auto;
+      padding: 20px;
+    }
+
+    /* Floating QR */
+    .floating-qr {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 75px;
+      height: 75px;
+      border-radius: 18px;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+      z-index: 999;
+      border: 1px solid rgba(0, 123, 255, 0.3);
+    }
+
+    .floating-qr canvas {
+      width: 58px;
+      height: 58px;
+      border-radius: 12px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
+      text-align: center;
+    }
+
+    .logo {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #001122, #002244);
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--light);
+      box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
+    }
+
+    h1 {
+      margin: 10px 0 4px;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--light);
+    }
+
+    p.lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .grid {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 28px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 20px;
+      border-radius: 18px;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(12px);
+      transition: 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0, 123, 255, 0.4);
+    }
+
+    .card h3 {
+      color: var(--accent);
+      margin-top: 0;
+    }
+
+    .services {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .chip {
+      background: rgba(0, 123, 255, 0.1);
+      padding: 8px 14px;
+      border-radius: 999px;
+      color: var(--light);
+      border: 1px solid rgba(0, 123, 255, 0.3);
+      font-size: 13px;
+      transition: 0.3s ease;
+    }
+
+    .chip:hover {
+      background: var(--accent);
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    .contact-list {
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      padding: 12px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.07);
+      transition: 0.3s ease;
+      border: 1px solid transparent;
+    }
+    .contact-item:hover {
+      transform: scale(1.03);
+      border-color: var(--accent);
+      background: rgba(0, 123, 255, 0.15);
+    }
+<!doctype html>
+<html lang="ckb">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Center — Mobile Shop</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <style>
+    :root {
+      --bg: #000000;
+      --card: rgba(255, 255, 255, 0.06);
+      --muted: #aeb7c4;
+      --accent: #007bff;
+      --light: #ffffff;
+      font-family: 'Noto Sans Arabic', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      direction: rtl;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--light);
+      min-height: 100vh;
+    }
+
+    .wrap {
+      max-width: 900px;
+      margin: 28px auto;
+      padding: 20px;
+    }
+
+    /* Floating QR */
+    .floating-qr {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 75px;
+      height: 75px;
+      border-radius: 18px;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+      z-index: 999;
+      border: 1px solid rgba(0, 123, 255, 0.3);
+    }
+
+    .floating-qr canvas {
+      width: 58px;
+      height: 58px;
+      border-radius: 12px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
+      text-align: center;
+    }
+
+    .logo {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #001122, #002244);
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--light);
+      box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
+    }
+
+    h1 {
+      margin: 10px 0 4px;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--light);
+    }
+
+    p.lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .grid {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 28px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 20px;
+      border-radius: 18px;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(12px);
+      transition: 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0, 123, 255, 0.4);
+    }
+
+    .card h3 {
+      color: var(--accent);
+      margin-top: 0;
+    }
+
+    .services {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .chip {
+      background: rgba(0, 123, 255, 0.1);
+      padding: 8px 14px;
+      border-radius: 999px;
+      color: var(--light);
+      border: 1px solid rgba(0, 123, 255, 0.3);
+      font-size: 13px;
+      transition: 0.3s ease;
+    }
+
+    .chip:hover {
+      background: var(--accent);
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    .contact-list {
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      padding: 12px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.07);
+      transition: 0.3s ease;
+      border: 1px solid transparent;
+    }
+
+    .contact-item:hover {
+      transform: scale(1.03);
+      border-color: var(--accent);
+      background: rgba(0, 123, 255, 0.15);
+    }
+.contact-item i {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--accent);
+      background: rgba(0, 0, 0, 0.6);
+      box-shadow: 0 0 6px rgba(0, 123, 255, 0.4);
+    }
+
+    .contact-item a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .address {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    footer {
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 10px;
+    }
+
+    @media (max-width: 880px) {
+      .floating-qr {
+        width: 60px;
+        height: 60px;
+        top: 16px;
+        left: 16px;
+      }
+      .floating-qr canvas {
+        width: 45px;
+        height: 45px;
+      }
+      h1 { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="floating-qr">
+    <canvas id="floatingQR"></canvas>
+  </div>
+
+  <div class="wrap">
+    <header>
+      <div class="logo">MC</div>
+      <div>
+        <h1>My Center</h1>
+        <p class="lead">دوکانی ئێمە پێشەنگە لە چاکردنەوەی مۆبایل، بە کاڵا و خزمەتگوزاری باوەڕپێکراو بۆ کڕیاران</p>
+      </div>
+    </header>
+
+    <div class="grid">
+      <div class="card">
+        <h3>ناونیشان👇</h3>
+        <p class="address">هەریر تەنیشت سەنتەری زین.</p>
+        <div class="services">
+          <span class="chip">سۆفتوێر</span>
+          <span class="chip">چاککردنەوەی مۆبایل</span>
+          <span class="chip">کەلوپەلی مۆبایل</span>
+        </div>
+
+        <div class="contact-list">
+          <div class="contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <div class="meta">
+              <div><a href="tel:07515421042">07515421042</a></div>
+              <div style="color:var(--muted);font-size:13px">پەیوەندی بکە</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fa-brands fa-whatsapp"></i>
+            <div class="meta"><a href="https://wa.me/9647515421042?text=سڵاو%20My%20Center" target="_blank">WhatsApp</a></div>
+          </div>
+
+          <div class="contact-item">
+            <i class="fa-brands fa-viber"></i>
+            <div class="meta"><a href="viber://chat?number=%2B9647515421042">Viber</a></div>
+          </div>
+
+          <div class="contact-item">
+            <i class="fa-brands fa-facebook"></i>
+            <div class="meta"><a href="https://www.facebook.com/share/177XtNcrSs/?mibextid=wwXIfr" target="_blank">Facebook</a></div>
+          </div>
+
+          <div class="contact-item">
+            <i class="fa-brands fa-snapchat"></i>
+            <div class="meta"><a href="https://www.snapchat.com/add/m4hdi2025" target="_blank">Snapchat</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>© 2025 My Center | هەموو مافەکان پارێزراون</footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+  <script>
+    new QRious({
+      element: document.getElementById('floatingQR'),
+      size: 60,
+      value: window.location.href,
+      background: 'transparent',
+      foreground: '#007bff'
+    });
+  </script>
+</body>
+</html>
